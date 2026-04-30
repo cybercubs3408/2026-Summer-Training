@@ -18,6 +18,8 @@ public class ShooterSubsystem extends SubsystemBase
   public TalonFX m_leader;
   public TalonFX m_follower;
   /** Creates a new ExampleSubsystem. */
+
+  // setup shooter subsystem
   public ShooterSubsystem()
    {
    m_leader= new TalonFX(motorConstants.kShooterLeaderId); /**add correct device id's later */

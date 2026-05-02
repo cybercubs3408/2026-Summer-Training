@@ -11,7 +11,7 @@ import com.ctre.phoenix6.controls.Follower;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.MotorAlignmentValue;
 
-import frc.robot.Constants.motorConstants;
+import frc.robot.Constants.operatorConstants;
 
 public class ShooterSubsystem extends SubsystemBase 
 {
@@ -22,9 +22,9 @@ public class ShooterSubsystem extends SubsystemBase
   // setup shooter subsystem
   public ShooterSubsystem()
    {
-   m_leader= new TalonFX(motorConstants.kShooterLeaderId); /**add correct device id's later */
-   m_follower= new TalonFX(motorConstants.kShooterFollowerId);
-   m_follower.setControl(new Follower(motorConstants.kShooterLeaderId, MotorAlignmentValue.Opposed));
+   m_leader= new TalonFX(operatorConstants.kShooterLeaderId); /**add correct device id's later */
+   m_follower= new TalonFX(operatorConstants.kShooterFollowerId);
+   m_follower.setControl(new Follower(operatorConstants.kShooterLeaderId, MotorAlignmentValue.Opposed));
     
 
   }
@@ -49,7 +49,7 @@ public class ShooterSubsystem extends SubsystemBase
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return this.startEnd(
       ()->{
-        setShooterSpeed(motorConstants.kShooterSpeed);
+        setShooterSpeed(operatorConstants.kShooterSpeed);
       },
       () -> {
         stopShooter();

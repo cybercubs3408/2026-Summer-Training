@@ -62,7 +62,7 @@ public class TurretSubsystem extends SubsystemBase
     // create a Motion Magic request, voltage output
     final MotionMagicVoltage m_request = new MotionMagicVoltage(0);
 
-    // set target position to 100 rotations
+    // set target position to rotations
     m_turret.setControl(m_request.withPosition(rotations));
   }
 

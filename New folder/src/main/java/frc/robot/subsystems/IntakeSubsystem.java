@@ -13,29 +13,36 @@ import com.ctre.phoenix6.signals.MotorAlignmentValue;
 
 import frc.robot.Constants.operatorConstants;
 
-public class ShooterSubsystem extends SubsystemBase 
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.spark.config.SparkMaxConfig;
+import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.PersistMode;
+import com.revrobotics.ResetMode;
+
+public class IntakeSubsystem extends SubsystemBase 
 {
-  public TalonFX m_leader;
-  public TalonFX m_follower;
+  
+    private final SparkMax m_IntakeMotor;
   /** Creates a new ExampleSubsystem. */
 
-  // setup shooter subsystem
-  public ShooterSubsystem()
+  // setup hopper subsystem
+  public IntakeSubsystem()
    {
-   m_leader= new TalonFX(operatorConstants.kShooterLeaderId); /**add correct device id's later */
-   m_follower= new TalonFX(operatorConstants.kShooterFollowerId);
-   m_follower.setControl(new Follower(operatorConstants.kShooterLeaderId, MotorAlignmentValue.Opposed));
+   
+    m_IntakeMotor = new SparkMax(operatorConstants.kIntakeMotorId, MotorType.kBrushed);
+   //brushed or brushless?
     
 
   }
-  public void setShooterSpeed(double speed)
+  public void setIntakeSpeed(double speed)
   {
-    m_leader.set(speed);
+    m_IntakeMotor.set(speed);
   }
 
-  public void stopShooter()
+  public void stopIntake()
   {
-    m_leader.set(0);
+    m_IntakeMotor.set(0);
   }
 
   /**
@@ -43,16 +50,16 @@ public class ShooterSubsystem extends SubsystemBase
    *
    * @return a command
    */
-  public Command runShooter()
+  public Command runIntake()
   {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return this.startEnd(
       ()->{
-        setShooterSpeed(operatorConstants.kShooterSpeed);
+        setIntakeSpeed(operatorConstants.kIntakeSpeed);
       },
       () -> {
-        stopShooter();
+        stopIntake();
       }
 
     );

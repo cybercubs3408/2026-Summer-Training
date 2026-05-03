@@ -5,7 +5,7 @@ public class Constants {
         /**Shooter Variables */
         public static final int kShooterLeaderId=0;
         public static final int kShooterFollowerId=1;
-        public static final int kShooterSpeed=1;
+        public static final double kShooterSpeed=1;
 
         /**Turret variables */
         public static final int kTurretMotorId=2;
@@ -17,6 +17,13 @@ public class Constants {
         public static final double kTurretI=0;
         public static final double kTurretD=0.1;
 
+        //Hopper variables
+        public static final int kHopperMotorId=3;
+        public static final double kHopperSpeed=1;
+
+        //intake variables
+        public static final int kIntakeMotorId=4;
+        public static final double kIntakeSpeed=1;
 
     
     }

@@ -20,29 +20,29 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 
-public class HopperSubsystem extends SubsystemBase 
+public class KickerSubsystem extends SubsystemBase 
 {
   
-    private final SparkMax m_HopperMotor;
+    private final SparkMax m_KickerMotor;
   /** Creates a new ExampleSubsystem. */
 
   // setup hopper subsystem
-  public HopperSubsystem()
+  public KickerSubsystem()
    {
    
-    m_HopperMotor = new SparkMax(operatorConstants.kHopperMotorId, MotorType.kBrushed);
-   //brushed or brushless???
+    m_KickerMotor = new SparkMax(operatorConstants.kKickerMotorId, MotorType.kBrushed);
+   //brushed or brushless?
     
 
   }
-  public void setHopperSpeed(double speed)
+  public void setKickerSpeed(double speed)
   {
-    m_HopperMotor.set(speed);
+    m_KickerMotor.set(speed);
   }
 
-  public void stopHopper()
+  public void stopKicker()
   {
-    m_HopperMotor.set(0);
+    m_KickerMotor.set(0);
   }
 
   /**
@@ -50,16 +50,16 @@ public class HopperSubsystem extends SubsystemBase
    *
    * @return a command
    */
-  public Command runHopper()
+  public Command runKicker()
   {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return this.startEnd(
       ()->{
-        setHopperSpeed(operatorConstants.kHopperSpeed);
+        setKickerSpeed(operatorConstants.kKickerSpeed);
       },
       () -> {
-        stopHopper();
+        stopKicker();
       }
 
     );

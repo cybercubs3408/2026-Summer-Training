@@ -25,6 +25,14 @@ public class Constants {
         public static final int kIntakeMotorId=4;
         public static final double kIntakeSpeed=1;
 
+        //intake mover varialbes
+         public static final int kIntakeMoverMotorId=5;
+        public static final double kIntakeMoverSpeed=1;
+
+         //kicker varialbes
+         public static final int kKickerMotorId=6;
+         public static final double kKickerSpeed=1;
+
     
     }
 }

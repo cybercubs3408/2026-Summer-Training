@@ -20,46 +20,48 @@ import com.revrobotics.spark.SparkMax;
 import com.revrobotics.PersistMode;
 import com.revrobotics.ResetMode;
 
-public class HopperSubsystem extends SubsystemBase 
+public class IntakeMoverSubsystem extends SubsystemBase 
 {
   
-    private final SparkMax m_HopperMotor;
+    private final SparkMax m_IntakeMoverMotor;
   /** Creates a new ExampleSubsystem. */
 
   // setup hopper subsystem
-  public HopperSubsystem()
+  public IntakeMoverSubsystem()
    {
    
-    m_HopperMotor = new SparkMax(operatorConstants.kHopperMotorId, MotorType.kBrushed);
-   //brushed or brushless???
+    m_IntakeMoverMotor = new SparkMax(operatorConstants.kIntakeMoverMotorId, MotorType.kBrushed);
+   //brushed or brushless?
     
 
   }
-  public void setHopperSpeed(double speed)
+  public void setIntakeMoverSpeed(double speed)
   {
-    m_HopperMotor.set(speed);
+    m_IntakeMoverMotor.set(speed);
   }
 
-  public void stopHopper()
+  public void stopIntakeMover()
   {
-    m_HopperMotor.set(0);
+    m_IntakeMoverMotor.set(0);
   }
+
+  
 
   /**
    * Example command factory method.
    *
    * @return a command
    */
-  public Command runHopper()
+  public Command setIntakeMoverPosition(double position)
   {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return this.startEnd(
       ()->{
-        setHopperSpeed(operatorConstants.kHopperSpeed);
+        //motion max command or pid
       },
       () -> {
-        stopHopper();
+        stopIntakeMover();
       }
 
     );

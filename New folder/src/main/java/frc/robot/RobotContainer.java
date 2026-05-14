@@ -95,6 +95,7 @@ public class RobotContainer {
         driverController.x().whileTrue(m_ShooterSubsystem.runShooter());
         driverController.y().whileTrue(m_HopperSubsystem.runHopper());
         driverController.rightBumper().whileTrue(m_IntakeSubsystem.runIntake());
+        driverController.leftBumper().whileTrue(m_IntakeSubsystem.runKicker());
         
     }
 

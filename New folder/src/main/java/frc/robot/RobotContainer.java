@@ -23,6 +23,7 @@ import frc.robot.subsystems.ShooterSubsystem;
 import frc.robot.subsystems.TurretSubsystem;
 import frc.robot.subsystems.HopperSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.KickerSubsystem;
 
 
 //import frc.robot.subsystems.ShooterSubsystem;
@@ -49,6 +50,7 @@ public class RobotContainer {
     private final TurretSubsystem m_TurretSubsystem = new TurretSubsystem();
     private final HopperSubsystem m_HopperSubsystem = new HopperSubsystem();
     private final IntakeSubsystem m_IntakeSubsystem = new IntakeSubsystem();
+    private final KickerSubsystem m_KickerSubsystem = new KickerSubsystem();
 
     public RobotContainer() {
         configureBindings();
@@ -95,7 +97,7 @@ public class RobotContainer {
         driverController.x().whileTrue(m_ShooterSubsystem.runShooter());
         driverController.y().whileTrue(m_HopperSubsystem.runHopper());
         driverController.rightBumper().whileTrue(m_IntakeSubsystem.runIntake());
-        driverController.leftBumper().whileTrue(m_IntakeSubsystem.runKicker());
+        driverController.leftBumper().whileTrue(m_KickerSubsystem.runKicker());
         
     }
 
